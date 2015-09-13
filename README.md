@@ -64,33 +64,44 @@ app.page('a/b/c.hbs', {content: 'some contents'})
   });
 ```
 
-## API
+## Types
 
-### [wrapper](index.js#L36)
-
-Wrap a plugin function to easily use it with the specified type (e.g. app, collection, view, or any)
-
-**Params**
-
-* `pluginType` **{String}**: The type specifying where this plugin should be use.
-* `pluginType.app` **{String}**: Only use on the `app`
-* `pluginType.collection` **{String}**: Only use on view collections.
-* `pluginType.view` **{String}**: Only use on view instances.
-* `pluginType.any` **{String}**: Use with any of the plugin types.
-* `fn` **{Function}**: Function to use as the plugin. This will be executed in the context of the specified plugin type object (e.g. app, collection, view)
-* `returns` **{Function}**: Plugin function that may be passed to `.use` methods on app, collection, and/or view instances
-
-**Example**
+If you don't specify a plugin `type`, it defaults to `all`, which means the plugin will be registered with `app`, every `collection` and every `view`.
 
 ```js
-app.use(wrapper('any', function () {
-  this.foo = function (str) {
-    return 'foo-' + str;
-  };
-}));
+// this will be used on app, collection and view instances
+var app = assemble();
+  .use(wrap(function() {
 
-app.foo('bar');
-//=> 'foo-bar'
+  }));
+```
+
+To control where the plugin is registered, you can specify one of the following:
+
+* `app`:
+* `collection`
+* `view`
+
+**Examples**
+
+```js
+// this will be used on view instances
+var app = assemble();
+  .use('view', wrap(function(view) {
+    // "this" is view
+  }));
+
+// this will be used on collection instances
+var app = assemble();
+  .use('collection', wrap(function(collection) {
+    // "this" is collection
+  }));
+
+// this will be used on app instances
+var app = assemble();
+  .use('app', wrap(function(app) {
+    // "this" is app
+  }));
 ```
 
 ## Related projects
