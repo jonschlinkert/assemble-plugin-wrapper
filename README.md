@@ -16,6 +16,33 @@ var wrapper = require('assemble-plugin-wrapper');
 
 ## API
 
+### [wrapper](index.js#L36)
+
+Wrap a plugin function to easily use it with the specified type (e.g. app, collection, view, or any)
+
+**Params**
+
+* `pluginType` **{String}**: The type specifying where this plugin should be use.
+* `pluginType.app` **{String}**: Only use on the `app`
+* `pluginType.collection` **{String}**: Only use on view collections.
+* `pluginType.view` **{String}**: Only use on view instances.
+* `pluginType.any` **{String}**: Use with any of the plugin types.
+* `fn` **{Function}**: Function to use as the plugin. This will be executed in the context of the specified plugin type object (e.g. app, collection, view)
+* `returns` **{Function}**: Plugin function that may be passed to `.use` methods on app, collection, and/or view instances
+
+**Example**
+
+```js
+app.use(wrapper('any', function () {
+  this.foo = function (str) {
+    return 'foo-' + str;
+  };
+}));
+
+app.foo('bar');
+//=> 'foo-bar'
+```
+
 ## Related projects
 
 * [assemble](https://www.npmjs.com/package/assemble): Static site generator for Grunt.js, Yeoman and Node.js. Used by Zurb Foundation, Zurb Ink, H5BP/Effeckt,… [more](https://www.npmjs.com/package/assemble) | [homepage](http://assemble.io)
