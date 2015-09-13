@@ -1,6 +1,6 @@
 # assemble-plugin-wrapper [![NPM version](https://badge.fury.io/js/assemble-plugin-wrapper.svg)](http://badge.fury.io/js/assemble-plugin-wrapper)  [![Build Status](https://travis-ci.org/doowb/assemble-plugin-wrapper.svg)](https://travis-ci.org/doowb/assemble-plugin-wrapper)
 
-> Easily wrap plugins to use with apps, collections, and/or views.
+> Makes it easy for plugin authors to generalize assemble plugins. Assemble has three types of plugins: app, collection and view. This makes it easy to specify one or more of those types to use for your plugin.
 
 Install with [npm](https://www.npmjs.com/)
 
@@ -11,7 +11,55 @@ $ npm i assemble-plugin-wrapper --save
 ## Usage
 
 ```js
-var wrapper = require('assemble-plugin-wrapper');
+var wrap = require('assemble-plugin-wrapper');
+```
+
+**Before**
+
+Let's say you want to create a permalinks plugin. To generate a permalink, you need to modify the destination path of a `view`, which means you would need to actually modify each view before it's rendered.
+
+Here is what a `view` plugin looks like:
+
+```js
+var app = assemble();
+
+// create a plugin
+function permalinks(options) {
+  return function (view) {
+    // do stuff to generate permalink...
+  };
+}
+
+// then use it on a view (this works well when you 
+// loop over views to render then)
+app.page('a/b/c.hbs', {content: 'some contents'})
+  .use(permalink(':dest/:name.html'))
+  .render(function(err, view) {
+    // rendered view
+  });
+```
+
+**After**
+
+```js
+// create a `view` plugin
+function permalinks(options) {
+  return plugin('view', function (view) {
+    // do stuff to generate permalink...
+  });
+}
+
+// pass it to `app` intead of each `view`. 
+// consider this the "default" config for the plugin
+var app = assemble()
+  .use(permalink(':dest/:name.html'))
+
+// if you want you can still use the plugin on each view 
+// if you need to override the settings passed to `app`
+app.page('a/b/c.hbs', {content: 'some contents'})
+  .render(function(err, view) {
+    // rendered view
+  });
 ```
 
 ## API

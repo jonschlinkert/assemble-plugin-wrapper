@@ -1,6 +1,6 @@
 {
   "name": "assemble-plugin-wrapper",
-  "description": "Easily wrap plugins to use with apps, collections, and/or views.",
+  "description": "Makes it easy for plugin authors to generalize assemble plugins. Assemble has three types of plugins: app, collection and view. This makes it easy to specify one or more of those types to use for your plugin.",
   "version": "0.1.0",
   "homepage": "https://github.com/doowb/assemble-plugin-wrapper",
   "author": "Brian Woodward (https://github.com/doowb)",
