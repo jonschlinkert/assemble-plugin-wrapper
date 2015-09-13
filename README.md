@@ -1,49 +1,50 @@
-# assemble-plugin-wrapper [![NPM version](https://badge.fury.io/js/assemble-plugin-wrapper.svg)](http://badge.fury.io/js/assemble-plugin-wrapper)  [![Build Status](https://travis-ci.org/doowb/assemble-plugin-wrapper.svg)](https://travis-ci.org/doowb/assemble-plugin-wrapper) 
+# assemble-plugin-wrapper [![NPM version](https://badge.fury.io/js/assemble-plugin-wrapper.svg)](http://badge.fury.io/js/assemble-plugin-wrapper)  [![Build Status](https://travis-ci.org/doowb/assemble-plugin-wrapper.svg)](https://travis-ci.org/doowb/assemble-plugin-wrapper)
 
 > Easily wrap plugins to use with apps, collections, and/or views.
 
-## Install with [npm](npmjs.org)
+Install with [npm](https://www.npmjs.com/)
 
-```bash
-npm i assemble-plugin-wrapper --save
+```sh
+$ npm i assemble-plugin-wrapper --save
 ```
 
 ## Usage
 
 ```js
-var assemblePluginWrapper = require('assemble-plugin-wrapper');
+var wrapper = require('assemble-plugin-wrapper');
 ```
 
 ## API
-<!-- add a path or glob pattern for files with code comments to use for docs  -->
-{%= apidocs("index.js") %}
 
 ## Related projects
-<!-- add an array of related projects, then un-escape the helper -->
-{%= related([]) %}  
+
+* [assemble](https://www.npmjs.com/package/assemble): Static site generator for Grunt.js, Yeoman and Node.js. Used by Zurb Foundation, Zurb Ink, H5BP/Effeckt,… [more](https://www.npmjs.com/package/assemble) | [homepage](http://assemble.io)
+* [templates](https://www.npmjs.com/package/templates): System for creating and managing template collections, and rendering templates with any node.js template engine.… [more](https://www.npmjs.com/package/templates) | [homepage](https://github.com/jonschlinkert/templates)
+* [verb](https://www.npmjs.com/package/verb): Documentation generator for GitHub projects. Verb is extremely powerful, easy to use, and is used… [more](https://www.npmjs.com/package/verb) | [homepage](https://github.com/verbose/verb)
 
 ## Running tests
-Install dev dependencies.
 
-```bash
-npm i -d && npm test
+Install dev dependencies:
+
+```sh
+$ npm i -d && npm test
 ```
 
-
 ## Contributing
-Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/doowb/assemble-plugin-wrapper/issues)
 
+Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/doowb/assemble-plugin-wrapper/issues/new).
 
 ## Author
 
 **Brian Woodward**
- 
+
 + [github/doowb](https://github.com/doowb)
-+ [twitter/doowb](http://twitter.com/doowb) 
++ [twitter/doowb](http://twitter.com/doowb)
 
 ## License
+
 Copyright © 2015 Brian Woodward
-Released under the MIT license
+Released under the MIT license.
 
 ***
 

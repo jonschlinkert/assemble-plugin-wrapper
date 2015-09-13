@@ -22,5 +22,14 @@
   "devDependencies": {
     "assemble": "assemble/assemble#dev",
     "mocha": "*"
+  },
+  "verb": {
+    "related": {
+      "list": [
+        "assemble",
+        "templates",
+        "verb"
+      ]
+    }
   }
 }

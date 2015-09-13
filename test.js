@@ -1,13 +1,13 @@
 require('mocha');
 var assert = require('assert');
 var assemble = require('assemble');
-var wrap = require('./');
+var wrapper = require('./');
 var plugin;
 
 describe('plugin defaults', function () {
   beforeEach(function () {
     plugin = function (type) {
-      return wrap(type, function () {
+      return wrapper(type, function () {
         this.foo = function (str) {
           return str + 'foo';
         };
