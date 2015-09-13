@@ -20,6 +20,7 @@
     "test": "mocha"
   },
   "devDependencies": {
+    "assemble": "assemble/assemble#dev",
     "mocha": "*"
   }
 }
